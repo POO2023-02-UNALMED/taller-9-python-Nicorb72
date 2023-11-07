@@ -29,3 +29,19 @@ boton_menos = Button(root, text="-", width=9, height=3, bg="deep sky blue", fg="
 boton_multiplicacion = Button(root, text="*",  width=9, height=3, bg="deep sky blue", fg="black", borderwidth=0, cursor="hand2", command=lambda: num("*")).grid(row=3, column=3, padx=1, pady=1, sticky="w")
 boton_division = Button(root, text="/", width=9, height=3, bg="deep sky blue", fg="black", borderwidth=0, cursor="hand2", command=lambda: num("/")).grid(row=4, column=3, padx=1, pady=1, sticky="w")
 
+def resultado():
+    global numero, operacion
+    if not operacion:
+        total = str(eval(numero))
+        valores.set(total)
+        operacion = True
+
+def num(numeros):
+    global numero, operacion
+    if operacion:
+        numero = ""
+        operacion = False
+    numero = numero + str(numeros)
+    valores.set(numero)
+
+root.mainloop()
